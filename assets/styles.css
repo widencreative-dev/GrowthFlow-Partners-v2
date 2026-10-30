@@ -412,6 +412,9 @@ h2.on-dark{ color:#fff; font-weight:700; }
 .is-leadership .flip-hint{ color:var(--signal); }
 .face-front .flip-hint{ margin-top:0; }
 .is-leadership .face-front .flip-hint{ margin-top:18px; }
+/* os dois cards do "The difference" seguem o mesmo padrao: texto logo abaixo do titulo e "See more" no rodape */
+.diff-card .face-front p{ margin-top:14px; padding-top:0; margin-bottom:auto; }
+.diff-card .face-front .flip-hint{ margin-top:18px; }
 /* verso: lista de itens + frase de fecho */
 .face-back .checks{ margin-top:20px; padding-top:0; border-top:none; gap:12px; }
 .face-back .checks li{ font-size:14.5px; color:var(--navy); }
@@ -536,8 +539,6 @@ h2.on-dark{ color:#fff; font-weight:700; }
 @media (max-width:900px){ .phases{ grid-template-columns:1fr; } }
 
 /* ---------- Back office ---------- */
-/* vem logo depois das avaliacoes (mesmo fundo): corta o respiro de cima para nao dobrar o espaco */
-#back-office{ padding-top:clamp(8px,2vw,24px); }
 .backoffice-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.6vw,20px); }
 .bo-item{ padding:22px 22px 26px; transition:transform .3s ease; }
 .bo-item h4{ margin-top:22px; font-size:17px; font-weight:700; line-height:1.25; }
@@ -777,7 +778,7 @@ footer.site{ background:var(--bg); border-top:1px solid var(--line); padding-top
    e igual ao quadro anterior, entao nao ha salto. As bordas esmaecem por mascara. */
 .sec-clients{ background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:clamp(48px,6vw,80px) 0; }
 .clients-head{ text-align:center; margin-bottom:clamp(24px,3.5vw,40px); }
-.clients-head h2{ font-size:clamp(26px,3.2vw,38px); max-width:none; }
+.clients-head .kicker{ margin:0; font-size:17px; }
 .clients-marquee{
   overflow:hidden;
   -webkit-mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
