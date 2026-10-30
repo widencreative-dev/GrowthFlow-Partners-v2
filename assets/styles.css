@@ -536,6 +536,8 @@ h2.on-dark{ color:#fff; font-weight:700; }
 @media (max-width:900px){ .phases{ grid-template-columns:1fr; } }
 
 /* ---------- Back office ---------- */
+/* vem logo depois das avaliacoes (mesmo fundo): corta o respiro de cima para nao dobrar o espaco */
+#back-office{ padding-top:clamp(8px,2vw,24px); }
 .backoffice-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.6vw,20px); }
 .bo-item{ padding:22px 22px 26px; transition:transform .3s ease; }
 .bo-item h4{ margin-top:22px; font-size:17px; font-weight:700; line-height:1.25; }
