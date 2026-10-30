@@ -33,7 +33,7 @@
       var lenis = new Lenis({
         lerp: 0.1,
         smoothWheel: true,
-        anchors: { offset: -76 }
+        anchors: { offset: -68 }
       });
       function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
       requestAnimationFrame(raf);
@@ -59,15 +59,20 @@
       }
     }
 
-    // Cards do Back office: o brilho da borda segue o mouse
-    document.querySelectorAll('.bo-item').forEach(function(card){
-      card.addEventListener('mousemove', function(e){
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        card.classList.add('is-hover');
+    // Cards que viram ("The difference" e "Who we work with"): clique (ou Enter/Espaco)
+    // mostra o verso. Links dentro do card (ex.: botao de contato) seguem normalmente.
+    document.querySelectorAll('.diff-card, .fit-item').forEach(function(card){
+      function flip(){
+        var on = card.classList.toggle('is-flipped');
+        card.setAttribute('aria-pressed', on ? 'true' : 'false');
+        card.querySelector('.face-front').setAttribute('aria-hidden', on ? 'true' : 'false');
+        card.querySelector('.face-back').setAttribute('aria-hidden', on ? 'false' : 'true');
+      }
+      card.addEventListener('click', function(e){ if(e.target.closest('a')) return; flip(); });
+      card.addEventListener('keydown', function(e){
+        if(e.target.closest('a')) return;
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); flip(); }
       });
-      card.addEventListener('mouseleave', function(){ card.classList.remove('is-hover'); });
     });
 
     // Contagem dos números ao entrar na tela
@@ -82,6 +87,7 @@
       }
       requestAnimationFrame(step);
     }
+    var figures = document.querySelectorAll('.fit-figure');
     if(!reduced && 'IntersectionObserver' in window){
       counters.forEach(function(el){
         el.textContent = '0';
@@ -90,11 +96,35 @@
         entries.forEach(function(entry){
           if(entry.isIntersecting){
             cio.unobserve(entry.target);
+            entry.target.classList.add('in-view');
             entry.target.querySelectorAll('[data-count]').forEach(runCount);
           }
         });
       }, { threshold: 0.6 });
-      document.querySelectorAll('.fit-figure').forEach(function(el){ cio.observe(el); });
+      figures.forEach(function(el){ cio.observe(el); });
+    } else {
+      figures.forEach(function(el){ el.classList.add('in-view'); });
+    }
+
+    // Perguntas do bloco escuro: troca sozinha a cada 4,5s; os pontos levam direto a uma
+    var qBox = document.getElementById('questions');
+    if(qBox){
+      var qItems = qBox.querySelectorAll('.q-item'), qDots = qBox.querySelectorAll('.q-dots button');
+      var qIdx = 0, qTimer = null;
+      function qShow(i){
+        qIdx = (i + qItems.length) % qItems.length;
+        qItems.forEach(function(el, k){ el.classList.toggle('is-active', k === qIdx); });
+        qDots.forEach(function(el, k){ el.classList.toggle('is-active', k === qIdx); });
+      }
+      function qPlay(){
+        if(reduced) return;
+        clearInterval(qTimer);
+        qTimer = setInterval(function(){ qShow(qIdx + 1); }, 4500);
+      }
+      qDots.forEach(function(d, k){ d.addEventListener('click', function(){ qShow(k); qPlay(); }); });
+      qBox.addEventListener('mouseenter', function(){ clearInterval(qTimer); });
+      qBox.addEventListener('mouseleave', qPlay);
+      qPlay();
     }
 
     var items = document.querySelectorAll('.reveal');

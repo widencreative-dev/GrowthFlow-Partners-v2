@@ -1,0 +1,58 @@
+{
+  "source": "Google Business Profile (GrowthFlow Partners)",
+  "collected_at": "2026-10-30",
+  "rating": 5.0,
+  "count": 6,
+  "reviews": [
+    {
+      "author": "Tarsis Pedroso",
+      "company": "Pratt Ltd",
+      "rating": 5,
+      "when": "6 weeks ago",
+      "text": "Pratt Ltd has had an excellent experience working with GrowthFlow Partners. Their team is professional, knowledgeable, and genuinely understands the financial challenges that come with running and growing a business. They provide clear, practical guidance rather than just numbers and reports, helping us better understand our finances, improve our systems, and make more informed business decisions.\n\nCommunication has been responsive and straightforward, and their fractional CFO approach brings a level of financial expertise that would normally be difficult for a growing company to have in-house. We highly recommend GrowthFlow Partners to business owners looking for a reliable financial partner.",
+      "photo": "assets/reviewers/tarsis-pedroso.png",
+      "date": "2026-09"
+    },
+    {
+      "author": "FC Flair Futsal",
+      "rating": 5,
+      "when": "7 weeks ago",
+      "text": "Sam at GrowthFlow has been great to work with. He's professional, organized, helpful, and always makes things easy to understand. Definitely recommend!",
+      "photo": "assets/reviewers/fc-flair-futsal.png",
+      "date": "2026-09"
+    },
+    {
+      "author": "Thor Haaland",
+      "rating": 5,
+      "when": "8 weeks ago",
+      "text": "Very professional and streamlined approach to fractional CFO services, highly recommend!",
+      "photo": "assets/reviewers/thor-haaland.png",
+      "date": "2026-09"
+    },
+    {
+      "author": "Carin Nuernberg",
+      "rating": 5,
+      "when": "8 weeks ago",
+      "text": "",
+      "photo": "assets/reviewers/carin-nuernberg.png",
+      "date": "2026-09"
+    },
+    {
+      "author": "Marcos Araujo",
+      "rating": 5,
+      "when": "8 weeks ago",
+      "text": "I've work with Sam and GrowthFlow for years, and they have always been very dedicated and bring great value",
+      "photo": "assets/reviewers/marcos-araujo.png",
+      "date": "2026-09"
+    },
+    {
+      "author": "Vital Raphael Araujo",
+      "rating": 5,
+      "when": "8 weeks ago",
+      "text": "GrowthFlow really helped me get all my numbers together as well as realign our financial vision. Highly Recommend!",
+      "photo": "assets/reviewers/vital-raphael-araujo.png",
+      "date": "2026-09"
+    }
+  ],
+  "dates_note": "Mes confirmado pelos timestamps do painel do Google (19/09, 10/09, 01/09 x2, 02/09 x2); o Google so exibe datas relativas."
+}
